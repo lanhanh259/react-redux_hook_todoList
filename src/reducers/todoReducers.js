@@ -1,5 +1,6 @@
+const storageList = JSON.parse(localStorage.getItem('list'))
 const initialTodo = {
-	list: [],
+	list: storageList || [],
 }
 
 const todoReducers = (state = initialTodo, action) => {

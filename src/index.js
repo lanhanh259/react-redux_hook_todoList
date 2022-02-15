@@ -1,22 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import { Provider } from 'react-redux'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import App from './App'
+import Details from './components/Details'
+import './index.css'
 import reportWebVitals from './reportWebVitals'
 import store from './store'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Details from './components/Details'
-import TodoDetails from './components/TodoDetails'
 
 ReactDOM.render(
 	<Provider store={store}>
 		<React.StrictMode>
 			<BrowserRouter>
+				<Link
+					to={'/'}
+					style={{
+						padding: '10px 0',
+						marginBottom: '20px',
+						backgroundColor: '#34b3e3',
+						textAlign: 'center',
+					}}
+				>
+					<h1>
+						React-Redux with<span style={{ fontWeight: 400 }}> hook</span>
+					</h1>
+				</Link>
 				<Routes>
-					<Route path="/" element={<App />}>
-						<Route path=":idTodo" element={<Details />}></Route>
-					</Route>
+					<Route path="/" element={<App />}></Route>
+					<Route path=":indexTodo" element={<Details />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</React.StrictMode>

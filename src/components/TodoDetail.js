@@ -2,12 +2,13 @@ import moment from 'moment'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function TodoDetails({ index, item, deleteTodo, update }) {
+function TodoDetail({ index, item, deleteTodo, update }) {
 	const [isEditing, setIsEditing] = useState(false)
 	const [updateData, setUpdateData] = useState('')
+	const [updateId, setUpdateId] = useState('')
 
 	const handleUpdate = () => {
-		update(index, updateData)
+		update(index, updateId, updateData)
 		setIsEditing(false)
 	}
 
@@ -16,13 +17,22 @@ function TodoDetails({ index, item, deleteTodo, update }) {
 			{isEditing ? (
 				<>
 					<input
+						style={{ width: '40px', marginRight: '4px' }}
+						value={updateId}
+						onChange={(e) => setUpdateId(e.target.value)}
+						placeholder="id"
+						required
+					/>
+					<input
 						value={updateData}
 						onChange={(e) => setUpdateData(e.target.value)}
+						placeholder="job name"
+						required
 					/>
 					<button onClick={() => handleUpdate()}>Save</button>
 				</>
 			) : (
-				<Link to={`${item.id}`}>
+				<Link to={`${index}`}>
 					<span>{item.id}. </span>
 					<span
 						style={{
@@ -51,4 +61,4 @@ function TodoDetails({ index, item, deleteTodo, update }) {
 	)
 }
 
-export default TodoDetails
+export default TodoDetail

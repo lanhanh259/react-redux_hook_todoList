@@ -13,6 +13,9 @@ a {
 	color: #000;
 	text-decoration: none;
 }
+.add-job:hover {
+	color: #2bb3e4;
+}
 button {
 	border: none;
 	padding: 4px 8px;
