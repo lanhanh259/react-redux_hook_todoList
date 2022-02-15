@@ -4,7 +4,7 @@ import { deleteTodo, updateTodo } from '../actions/index'
 import AddTodo from './AddTodo'
 import TodoDetail from './TodoDetail'
 
-function Todo() {
+function TodoList() {
 	const list = useSelector((state) => state.todoReducers.list)
 	const dispatch = useDispatch()
 
@@ -50,4 +50,4 @@ function Todo() {
 		</div>
 	)
 }
-export default Todo
+export default TodoList
